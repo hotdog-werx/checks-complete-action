@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: hotdog-werx/checks-complete-action@master
+      - uses: hotdog-werx/checks-complete-action@v0
         with:
           needs-jobs: '${{ inputs.needs-jobs }}'
