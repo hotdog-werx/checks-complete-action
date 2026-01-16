@@ -1,0 +1,18 @@
+name: checks-complete
+
+on:
+  workflow_call:
+    inputs:
+      needs-jobs:
+        required: true
+        type: string
+        description: Provide `toJSON(needs)` from the calling workflow
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hotdog-werx/checks-complete-action@master
+        with:
+          needs-jobs: '${{ inputs.needs-jobs }}'

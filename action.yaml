@@ -1,0 +1,20 @@
+name: checks-complete
+description: single required status check for multi-job GitHub Actions workflows
+
+inputs:
+  needs-jobs:
+    required: true
+    description: Provide `toJSON(needs)` from the calling workflow
+
+runs:
+  using: composite
+  steps:
+    - shell: python
+      run: |
+        import json, sys
+
+        needs_jobs = json.loads('''${{ inputs.needs-jobs }}''')
+        failed_jobs = [job for job, details in needs_jobs.items() if details['result'] == 'failure']
+
+        print(f'Failed jobs: {", ".join(failed_jobs)}' if failed_jobs else 'All jobs passed.')
+        sys.exit(1 if failed_jobs else 0)
