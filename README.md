@@ -4,7 +4,8 @@ Single required status check for multi-job GitHub Actions workflows.
 
 ## Usage
 
-All the following to a workflow that you want to enforce required status checks on:
+All the following to a workflow that you want to enforce required status checks
+on:
 
 ```yaml
 checks-complete:
@@ -15,8 +16,10 @@ checks-complete:
     needs-jobs: '${{ toJSON(needs) }}'
 ```
 
-Then, in your repository settings, set the `checks-complete / verify` job as a required status check for your branch protection rules.
+Then, in your repository settings, set the `checks-complete / verify` job as a
+required status check for your branch protection rules.
 
 ## Inputs
 
-`needs-jobs` (required): This is required to be `'${{ toJSON(needs) }}'` so that the action can parse the list of jobs that need to complete successfully.
+`needs-jobs` (required): This is required to be `'${{ toJSON(needs) }}'` so that
+the action can parse the list of jobs that need to complete successfully.
