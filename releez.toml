@@ -1,0 +1,3 @@
+create-pr = true
+run-changelog-format = true
+hooks = { changelog-format = ["mise", "exec", "--", "poe", "format-dprint", "{changelog}"] }
