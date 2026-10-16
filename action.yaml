@@ -18,7 +18,11 @@ runs:
         import sys
 
         needs_jobs = json.loads(os.environ['NEEDS_JOBS'])
-        failed_jobs = [job for job, details in needs_jobs.items() if details['result'] == 'failure']
+        failed_jobs = [
+            job
+            for job, details in needs_jobs.items()
+            if details['result'] in ('failure', 'cancelled')
+        ]
 
         print(f'Failed jobs: {", ".join(failed_jobs)}' if failed_jobs else 'All jobs passed.')
         sys.exit(1 if failed_jobs else 0)
