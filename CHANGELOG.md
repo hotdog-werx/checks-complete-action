@@ -17,6 +17,26 @@ View [unreleased changes][unreleased] since the last release.
 - Fix injection risk by reading needs-jobs from environment (#3) by
   [@jamestrousdale](https://github.com/jamestrousdale) in
   [#3](https://github.com/hotdog-werx/checks-complete-action/pull/3)
+- Release on releez 1.1.1 through the unified finalize action by
+  [@jmlopez-rod](https://github.com/jmlopez-rod)
+
+### ⚙️ Miscellaneous Tasks
+
+- Make the repo self-contained, drop codeguide, pkglink, poe, and tbelt (#4) by
+  [@jmlopez-rod](https://github.com/jmlopez-rod) in
+  [#4](https://github.com/hotdog-werx/checks-complete-action/pull/4)
+
+[0.1.1]: https://github.com/hotdog-werx/checks-complete-action/compare/0.1.0...0.1.1
+
+## [0.1.1] <a name="0.1.1" href="#0.1.1">-</a> October 17, 2026
+
+### 🐛 Bug Fixes
+
+- Pass needs jobs as raw string so it can contain \n (in outputs) by
+  [@jamestrousdale](https://github.com/jamestrousdale)
+- Fix injection risk by reading needs-jobs from environment (#3) by
+  [@jamestrousdale](https://github.com/jamestrousdale) in
+  [#3](https://github.com/hotdog-werx/checks-complete-action/pull/3)
 
 ### ⚙️ Miscellaneous Tasks
 
