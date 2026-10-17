@@ -10,11 +10,19 @@ runs:
   using: composite
   steps:
     - shell: python
+      env:
+        NEEDS_JOBS: ${{ inputs.needs-jobs }}
       run: |
-        import json, sys
+        import json
+        import os
+        import sys
 
-        needs_jobs = json.loads(r'''${{ inputs.needs-jobs }}''')
-        failed_jobs = [job for job, details in needs_jobs.items() if details['result'] == 'failure']
+        needs_jobs = json.loads(os.environ['NEEDS_JOBS'])
+        failed_jobs = [
+            job
+            for job, details in needs_jobs.items()
+            if details['result'] in ('failure', 'cancelled')
+        ]
 
         print(f'Failed jobs: {", ".join(failed_jobs)}' if failed_jobs else 'All jobs passed.')
         sys.exit(1 if failed_jobs else 0)
