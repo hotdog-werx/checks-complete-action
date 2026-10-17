@@ -1,0 +1,7 @@
+[format-dprint]
+description = "format with dprint"
+run = "dprint fmt"
+
+[format]
+description = "run all formatters"
+depends = ["format-dprint"]

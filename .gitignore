@@ -3,5 +3,3 @@ site
 .venv
 dist
 .repolish/*
-.pkglink/
-/.editorconfig
