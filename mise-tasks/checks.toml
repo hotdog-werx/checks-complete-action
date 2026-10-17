@@ -1,0 +1,7 @@
+[check-dprint]
+description = "check dprint-managed formatting"
+run = "dprint check"
+
+[ci-checks]
+description = "run all checks for CI"
+depends = ["check-dprint"]
